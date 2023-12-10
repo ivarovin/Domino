@@ -50,6 +50,15 @@ public class Tests
         Assert.IsTrue(ficha1.ConectaConDer(ficha2));
         Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
     }
+
+    [Test]
+    public void Reverse()
+    {
+        var ficha1 = new Ficha(1, 2, false);
+        var ficha2 = new Ficha(3, 2, true);
+        
+        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
+    }
 }
 
 public class Ficha
@@ -93,6 +102,11 @@ public struct Celda
         }
         
         this.value = value;
+    }
+
+    public static implicit operator Celda(int value)
+    {
+        return new Celda(value);
     }
 }
 
