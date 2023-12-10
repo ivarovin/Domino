@@ -54,15 +54,18 @@ public class Tests
     [Test]
     public void Reverse()
     {
-        var ficha1 = new Ficha(1, 2, false);
-        var ficha2 = new Ficha(3, 2, true);
+        var ficha1 = new Ficha(1, 2, true);
         
-        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
+        Assert.AreEqual(ficha1.Izquierda, (Celda)2);
+        Assert.AreEqual(ficha1.Derecha, (Celda)1);
     }
 }
 
 public class Ficha
 {
+    public Celda Derecha { get; }
+    public Celda Izquierda { get; }
+
     public Ficha(Celda n1, Celda n2, bool reverse)
     {
         this.n1 = n1;
