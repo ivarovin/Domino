@@ -31,21 +31,53 @@ public class Tests
         var celda2 = new Celda(3);
         Assert.AreEqual(celda1, celda2);
     }
+
+    [Test]
+    public void NoConectables()
+    {
+        var celda1 = new Celda(3);
+        var celda2 = new Celda(6);
+        Assert.AreNotEqual(celda1, celda2);
+    }
+    
+
+    [Test]
+    public void asasfa()
+    {
+        
+    }
 }
 
 public class Ficha
 {
+    public Ficha(Celda n1, Celda n2, bool izquierda)
+    {
+        this.n1 = n1;
+        this.n2 = n2;
+        this.izquierda = izquierda;
+    }
+
     public Celda n1;
     public Celda n2;
-    public bool orientacion;
+    public bool izquierda;
 }
 
-public class Celda
+public struct Celda
 {
     public int value;
 
     public Celda(int value)
     {
+        if (value < 0)
+        {
+            throw new ArgumentException("El valor no puede ser menor a 0");
+        }
+        
+        if (value > 6)
+        {
+            throw new ArgumentException("El valor no puede ser mayor a 6");
+        }
+        
         this.value = value;
     }
 }
