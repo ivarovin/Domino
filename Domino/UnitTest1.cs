@@ -39,17 +39,6 @@ public class Tests
         var celda2 = new Celda(6);
         Assert.AreNotEqual(celda1, celda2);
     }
-    
-
-    [Test]
-    public void FichasConectables()
-    {
-        var ficha1 = new Ficha(1, 2, false);
-        var ficha2 = new Ficha(2, 3, false);
-        
-        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
-        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
-    }
 
     [Test]
     public void NoInverso()
@@ -68,8 +57,26 @@ public class Tests
         Assert.AreEqual(ficha1.Izquierda, (Celda)2);
         Assert.AreEqual(ficha1.Derecha, (Celda)1);
     }
+
+    [Test]
+    public void FichasConectablesSinInverso()
+    {
+        var ficha1 = new Ficha(1, 2, false);
+        var ficha2 = new Ficha(2, 3, false);
+        
+        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
+        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
+    }
     
-    
+    [Test]
+    public void FichasConectablesInverso()
+    {
+        var ficha1 = new Ficha(1, 2, false);
+        var ficha2 = new Ficha(3, 2, true);
+        
+        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
+        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
+    }
 }
 
 public class Ficha
@@ -85,18 +92,18 @@ public class Ficha
         this.inverso = inverso;
     }
 
-    public Celda izquierda;
-    public Celda derecha;
-    public bool inverso;
+    readonly Celda izquierda;
+    readonly Celda derecha;
+    private bool inverso;
 
     public bool ConectaConDer(Ficha ficha2)
     {
-        return derecha.Equals(ficha2.izquierda);
+        return Derecha.Equals(ficha2.Izquierda);
     }
 
     public bool ConectaConIzq(Ficha ficha2)
     {
-        return izquierda.Equals(ficha2.derecha);
+        return Izquierda.Equals(ficha2.Derecha);
     }
 }
 
