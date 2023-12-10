@@ -63,28 +63,41 @@ public class Tests
 
 public class Ficha
 {
-    public Celda Derecha { get; }
-    public Celda Izquierda { get; }
-
-    public Ficha(Celda n1, Celda n2, bool reverse)
+    public Celda Derecha
     {
-        this.n1 = n1;
-        this.n2 = n2;
-        this.reverse = reverse;
+        get
+        {
+            return inverso? izquierda : derecha;
+        }
     }
 
-    public Celda n1;
-    public Celda n2;
-    public bool reverse;
+    public Celda Izquierda
+    {
+        get
+        {
+            return inverso? derecha : izquierda;
+        }
+    }
+
+    public Ficha(Celda izquierda, Celda derecha, bool inverso)
+    {
+        this.izquierda = izquierda;
+        this.derecha = derecha;
+        this.inverso = inverso;
+    }
+
+    public Celda izquierda;
+    public Celda derecha;
+    public bool inverso;
 
     public bool ConectaConDer(Ficha ficha2)
     {
-        return n2.Equals(ficha2.n1);
+        return derecha.Equals(ficha2.izquierda);
     }
 
     public bool ConectaConIzq(Ficha ficha2)
     {
-        return n1.Equals(ficha2.n2);
+        return izquierda.Equals(ficha2.derecha);
     }
 }
 
