@@ -42,24 +42,38 @@ public class Tests
     
 
     [Test]
-    public void asasfa()
+    public void FichasConectables()
     {
+        var ficha1 = new Ficha(1, 2, false);
+        var ficha2 = new Ficha(2, 3, false);
         
+        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
+        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
     }
 }
 
 public class Ficha
 {
-    public Ficha(Celda n1, Celda n2, bool izquierda)
+    public Ficha(Celda n1, Celda n2, bool reverse)
     {
         this.n1 = n1;
         this.n2 = n2;
-        this.izquierda = izquierda;
+        this.reverse = reverse;
     }
 
     public Celda n1;
     public Celda n2;
-    public bool izquierda;
+    public bool reverse;
+
+    public bool ConectaConDer(Ficha ficha2)
+    {
+        return n2.Equals(ficha2.n1);
+    }
+
+    public bool ConectaConIzq(Ficha ficha2)
+    {
+        return n1.Equals(ficha2.n2);
+    }
 }
 
 public struct Celda
