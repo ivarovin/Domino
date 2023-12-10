@@ -52,32 +52,31 @@ public class Tests
     }
 
     [Test]
-    public void Reverse()
+    public void NoInverso()
+    {
+        var ficha1 = new Ficha(1, 2, false);
+        
+        Assert.AreEqual(ficha1.Izquierda, (Celda)1);
+        Assert.AreEqual(ficha1.Derecha, (Celda)2);
+    }
+
+    [Test]
+    public void Inverso()
     {
         var ficha1 = new Ficha(1, 2, true);
         
         Assert.AreEqual(ficha1.Izquierda, (Celda)2);
         Assert.AreEqual(ficha1.Derecha, (Celda)1);
     }
+    
+    
 }
 
 public class Ficha
 {
-    public Celda Derecha
-    {
-        get
-        {
-            return inverso? izquierda : derecha;
-        }
-    }
+    public Celda Derecha => inverso? izquierda : derecha;
 
-    public Celda Izquierda
-    {
-        get
-        {
-            return inverso? derecha : izquierda;
-        }
-    }
+    public Celda Izquierda => inverso? derecha : izquierda;
 
     public Ficha(Celda izquierda, Celda derecha, bool inverso)
     {
