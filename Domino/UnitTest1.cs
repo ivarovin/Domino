@@ -89,13 +89,15 @@ public class Tests
         Assert.AreEqual(tablero.Fichas.Count, 1);
     }
     
-
     [Test]
     public void asdfadf()
     {
         var tablero = new Tablero();
-
-        tablero.PuedeAñadirIzq(false);
+        
+        tablero.Añadir(new Ficha(1, 2, false));
+        tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3, false));
+        
+        Assert.
     }
 }
 
@@ -106,6 +108,10 @@ public class Tablero
     public void Añadir(Ficha ficha)
     {
         Fichas.Add(ficha);
+    }
+    
+    public bool PuedeAñadirFichaIzquierda(Ficha ficha)
+    {
     }
 }
 
