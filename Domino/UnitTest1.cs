@@ -61,6 +61,15 @@ public class Tests
     }
 
     [Test]
+    public void AñadirFichaATableroIzquierda()
+    {
+        var tablero = new Tablero();
+        tablero.AñadirPorLaIzquierda(new Ficha(1,2));
+        // tablero.AñadirPorLaIzquierda(new Ficha(1,2));
+        
+    }
+
+    [Test]
     public void PuedeAñadirFichaIzquierda()
     {
         var tablero = new Tablero();
@@ -81,77 +90,41 @@ public class Tests
     }
 
     [Test]
-    public void sfsdds()
+    public void PuedeAñadirFichaDerecha()
+    {
+        var tablero = new Tablero();
+
+        tablero.Añadir(new Ficha(1, 2));
+
+        Assert.IsTrue(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
+    }
+
+    
+    [Test]
+    public void NoPuedeAñadirFichaDerecha()
+    {
+        var tablero = new Tablero();
+
+        tablero.Añadir(new Ficha(2, 1));
+
+        Assert.IsFalse(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
+    }
+
+    [Test]
+    public void AñadirPorLaDerecha()
+    {
+        
+    }
+
+    [Test]
+    public void ConectarFichaConCelda()
+    {
+        Assert.IsTrue(new Ficha(1, 2).Conecta(2));
+    }
+
+    [Test]
+    public void NoConectarFichaConCelda()
     {
         Assert.IsFalse(new Ficha(1, 2).Conecta(3));
     }
-}
-
-public class Tablero
-{
-    public List<Ficha> Fichas { get; } = new List<Ficha>();
-
-    public void Añadir(Ficha ficha)
-    {
-        Fichas.Add(ficha);
-    }
-
-    public bool PuedeAñadirFichaIzquierda(Ficha ficha)
-    {
-        return CeldaIzquierda().Equals(ficha.n1);
-    }
-
-    public Celda CeldaIzquierda() => Fichas.First().n1;
-    public Celda CeldaDerecha() => Fichas.Last().n2;
-}
-
-public class Ficha
-{
-    public Ficha(Celda n1, Celda n2)
-    {
-        this.n1 = n1;
-        this.n2 = n2;
-    }
-
-    public readonly Celda n1;
-    public readonly Celda n2;
-
-    public bool Conecta(Ficha otra)
-    {
-        return n1.Equals(otra.n1) || n1.Equals(otra.n2) || n2.Equals(otra.n1) || n2.Equals(otra.n2);
-    }
-
-    public bool Conecta(Celda otra)
-    {
-        return n1.Equals(otra) || n2.Equals(otra);
-    }
-}
-
-public struct Celda
-{
-    public int value;
-
-    public Celda(int value)
-    {
-        if (value < 0)
-        {
-            throw new ArgumentException("El valor no puede ser menor a 0");
-        }
-
-        if (value > 6)
-        {
-            throw new ArgumentException("El valor no puede ser mayor a 6");
-        }
-
-        this.value = value;
-    }
-
-    public static implicit operator Celda(int value)
-    {
-        return new Celda(value);
-    }
-}
-
-public class Player
-{
 }
