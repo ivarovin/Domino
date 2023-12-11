@@ -2,11 +2,12 @@ namespace Domino;
 
 // Reglas domino
 // https://es.wikipedia.org/wiki/Domin%C3%B3
+// Tablero 
 // El juego tiene 28 fichas
 // Cada jugador empieza con 7 fichas
-// Cada ficha tiene 2 celdas.
-// Cada celda tiene un número del 0 al 6.
-// Las fichas se conectan por las celdas con mismo número.
+// X Cada ficha tiene 2 celdas.
+// X Cada celda tiene un número del 0 al 6.
+// X Las fichas se conectan por las celdas con mismo número.
 // Gana el jugador que se quede sin fichas.
 // Si no puedes colocar ficha robas una del montón.
 // Si no hay fichas en el montón se pasa el turno.
@@ -76,6 +77,35 @@ public class Tests
         
         Assert.IsTrue(ficha1.ConectaConDer(ficha2));
         Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
+    }
+
+    [Test]
+    public void AñadirFichaATablero()
+    {
+        var tablero = new Tablero();
+        
+        tablero.Añadir(new Ficha(1, 2, false));
+        
+        Assert.AreEqual(tablero.Fichas.Count, 1);
+    }
+    
+
+    [Test]
+    public void asdfadf()
+    {
+        var tablero = new Tablero();
+
+        tablero.PuedeAñadirIzq(false);
+    }
+}
+
+public class Tablero
+{
+    public List<Ficha> Fichas { get; } = new List<Ficha>();
+
+    public void Añadir(Ficha ficha)
+    {
+        Fichas.Add(ficha);
     }
 }
 
