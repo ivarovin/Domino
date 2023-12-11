@@ -49,16 +49,6 @@ public class Tests
         
         Assert.IsTrue(ficha1.Conecta(ficha2));
     }
-    
-    [Test]
-    public void FichasConectablesInverso()
-    {
-        var ficha1 = new Ficha(1, 2);
-        var ficha2 = new Ficha(3, 2);
-        
-        Assert.IsTrue(ficha1.Conecta(ficha2));
-        Assert.IsFalse(ficha1.Conecta(ficha2));
-    }
 
     [Test]
     public void AñadirFichaATablero()
@@ -71,13 +61,23 @@ public class Tests
     }
     
     [Test]
-    public void asdfadf()
+    public void PuedeAñadirFichaIzquierda()
+    {
+        var tablero = new Tablero();
+        
+        tablero.Añadir(new Ficha(2, 1));
+        
+        Assert.IsTrue(tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3)));
+    }
+    
+    [Test]
+    public void NoPuedeAñadirFichaIzquierda()
     {
         var tablero = new Tablero();
         
         tablero.Añadir(new Ficha(1, 2));
         
-        Assert.IsTrue(tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3)));
+        Assert.IsFalse(tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3)));
     }
 }
 
@@ -92,7 +92,7 @@ public class Tablero
     
     public bool PuedeAñadirFichaIzquierda(Ficha ficha)
     {
-        return true;
+        return Fichas[0].Conecta(ficha);
     }
 }
 
@@ -109,7 +109,7 @@ public class Ficha
 
     public bool Conecta(Ficha otra)
     {
-        return true;
+        return n1.Equals(otra.n1) || n1.Equals(otra.n2) || n2.Equals(otra.n1) || n2.Equals(otra.n2);
     }
 }
 
