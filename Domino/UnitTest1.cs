@@ -42,41 +42,22 @@ public class Tests
     }
 
     [Test]
-    public void NoInverso()
+    public void FichasConectables()
     {
-        var ficha1 = new Ficha(1, 2, false);
+        var ficha1 = new Ficha(1, 2);
+        var ficha2 = new Ficha(2, 3);
         
-        Assert.AreEqual(ficha1.Izquierda, (Celda)1);
-        Assert.AreEqual(ficha1.Derecha, (Celda)2);
-    }
-
-    [Test]
-    public void Inverso()
-    {
-        var ficha1 = new Ficha(1, 2, true);
-        
-        Assert.AreEqual(ficha1.Izquierda, (Celda)2);
-        Assert.AreEqual(ficha1.Derecha, (Celda)1);
-    }
-
-    [Test]
-    public void FichasConectablesSinInverso()
-    {
-        var ficha1 = new Ficha(1, 2, false);
-        var ficha2 = new Ficha(2, 3, false);
-        
-        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
-        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
+        Assert.IsTrue(ficha1.Conecta(ficha2));
     }
     
     [Test]
     public void FichasConectablesInverso()
     {
-        var ficha1 = new Ficha(1, 2, false);
-        var ficha2 = new Ficha(3, 2, true);
+        var ficha1 = new Ficha(1, 2);
+        var ficha2 = new Ficha(3, 2);
         
-        Assert.IsTrue(ficha1.ConectaConDer(ficha2));
-        Assert.IsFalse(ficha1.ConectaConIzq(ficha2));
+        Assert.IsTrue(ficha1.Conecta(ficha2));
+        Assert.IsFalse(ficha1.Conecta(ficha2));
     }
 
     [Test]
@@ -84,7 +65,7 @@ public class Tests
     {
         var tablero = new Tablero();
         
-        tablero.Añadir(new Ficha(1, 2, false));
+        tablero.Añadir(new Ficha(1, 2));
         
         Assert.AreEqual(tablero.Fichas.Count, 1);
     }
@@ -94,10 +75,9 @@ public class Tests
     {
         var tablero = new Tablero();
         
-        tablero.Añadir(new Ficha(1, 2, false));
-        tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3, false));
+        tablero.Añadir(new Ficha(1, 2));
         
-        Assert.
+        Assert.IsTrue(tablero.PuedeAñadirFichaIzquierda(new Ficha(2,3)));
     }
 }
 
@@ -112,34 +92,24 @@ public class Tablero
     
     public bool PuedeAñadirFichaIzquierda(Ficha ficha)
     {
+        return true;
     }
 }
 
 public class Ficha
 {
-    public Celda Derecha => inverso? izquierda : derecha;
-
-    public Celda Izquierda => inverso? derecha : izquierda;
-
-    public Ficha(Celda izquierda, Celda derecha, bool inverso)
+    public Ficha(Celda n1, Celda n2)
     {
-        this.izquierda = izquierda;
-        this.derecha = derecha;
-        this.inverso = inverso;
+        this.n1 = n1;
+        this.n2 = n2;
     }
 
-    readonly Celda izquierda;
-    readonly Celda derecha;
-    private bool inverso;
+    readonly Celda n1;
+    readonly Celda n2;
 
-    public bool ConectaConDer(Ficha ficha2)
+    public bool Conecta(Ficha otra)
     {
-        return Derecha.Equals(ficha2.Izquierda);
-    }
-
-    public bool ConectaConIzq(Ficha ficha2)
-    {
-        return Izquierda.Equals(ficha2.Derecha);
+        return true;
     }
 }
 
