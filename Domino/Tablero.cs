@@ -9,6 +9,16 @@ public class Tablero
         Fichas.Add(ficha);
     }
 
+    // public ?? ComprobarYAñadirPorLaIzquierda(Ficha ficha)
+    // {
+    //     if (!PuedeAñadirFichaIzquierda(ficha)) {
+    //         return false
+    //     } else {
+    //         Fichas.Insert(0, ficha);
+    //         return true
+    //     }
+    // }
+
     public void AñadirPorLaIzquierda(Ficha ficha)
     {
         if(!PuedeAñadirFichaIzquierda(ficha)) throw new Exception("No se puede añadir la ficha por la izq");

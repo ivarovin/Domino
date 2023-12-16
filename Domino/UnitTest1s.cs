@@ -81,6 +81,22 @@ public class Tests
     }
 
     [Test]
+    public void FalloAlAñadirPorLaIzquierda()
+    {
+        var tablero = new Tablero();
+        tablero.AñadirInicial(new Ficha(1, 2));
+        Assert.Catch(() => tablero.AñadirPorLaIzquierda(new Ficha(3,3)));
+    }
+
+    [Test]
+    public void FalloAlAñadirPorLaDerecha()
+    {
+        var tablero = new Tablero();
+        tablero.AñadirInicial(new Ficha(1, 2));
+        Assert.Catch(() => tablero.AñadirPorLaDerecha(new Ficha(3,3)));
+    }
+
+    [Test]
     public void PuedeAñadirFichaIzquierda()
     {
         var tablero = new Tablero();
