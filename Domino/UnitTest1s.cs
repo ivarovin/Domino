@@ -65,18 +65,18 @@ public class Tests
     {
         var tablero = new Tablero();
         tablero.AñadirInicial(new Ficha(1, 2));
-        tablero.AñadirPorLaIzquierda(new Ficha(1,2));
-        
+        tablero.AñadirPorLaIzquierda(new Ficha(1, 2));
+
         Assert.IsTrue(tablero.Fichas.Count == 2);
     }
-    
+
     [Test]
     public void AñadirFichaATableroDerecha()
     {
         var tablero = new Tablero();
         tablero.AñadirInicial(new Ficha(1, 2));
-        tablero.AñadirPorLaDerecha(new Ficha(1,2));
-        
+        tablero.AñadirPorLaDerecha(new Ficha(1, 2));
+
         Assert.IsTrue(tablero.Fichas.Count == 2);
     }
 
@@ -85,7 +85,7 @@ public class Tests
     {
         var tablero = new Tablero();
         tablero.AñadirInicial(new Ficha(1, 2));
-        Assert.Catch(() => tablero.AñadirPorLaIzquierda(new Ficha(3,3)));
+        Assert.Catch(() => tablero.AñadirPorLaIzquierda(new Ficha(3, 3)));
     }
 
     [Test]
@@ -93,7 +93,7 @@ public class Tests
     {
         var tablero = new Tablero();
         tablero.AñadirInicial(new Ficha(1, 2));
-        Assert.Catch(() => tablero.AñadirPorLaDerecha(new Ficha(3,3)));
+        Assert.Catch(() => tablero.AñadirPorLaDerecha(new Ficha(3, 3)));
     }
 
     [Test]
@@ -126,7 +126,6 @@ public class Tests
         Assert.IsTrue(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
     }
 
-    
     [Test]
     public void NoPuedeAñadirFichaDerecha()
     {
@@ -137,7 +136,15 @@ public class Tests
         Assert.IsFalse(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
     }
 
-    
+    [Test]
+    public void asdasda()
+    {
+        var tablero = new Tablero();
+
+        tablero.AñadirInicial(new Ficha(1, 2));
+        tablero.AñadirPorLaDerecha(new Ficha(3, 2));
+        tablero.AñadirPorLaDerecha(new Ficha(3, 4));
+    }
 
     [Test]
     public void ConectarFichaConCelda()

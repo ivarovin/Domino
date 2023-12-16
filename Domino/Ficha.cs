@@ -20,4 +20,14 @@ public class Ficha
     {
         return n1.Equals(otra) || n2.Equals(otra);
     }
+
+    public Ficha AlinearDerecha(Celda otra)
+    {
+        if(n1.Equals())
+    }
+    
+    public Ficha Girar()
+    {
+        return new Ficha(n2, n1);
+    }
 }

@@ -22,13 +22,13 @@ public class Tablero
     public void AñadirPorLaIzquierda(Ficha ficha)
     {
         if(!PuedeAñadirFichaIzquierda(ficha)) throw new Exception("No se puede añadir la ficha por la izq");
-        Fichas.Insert(0, ficha);
+        Fichas.Insert(0, ficha.Girar());
     }
 
     public void AñadirPorLaDerecha(Ficha ficha)
     {
         if(!PuedeAñadirFichaDerecha(ficha)) throw new Exception("No se puede añadir la ficha por la derecha");
-        Fichas.Insert(Fichas.Count, ficha);
+        Fichas.Insert(Fichas.Count, ficha.Girar());
     }
 
     public bool PuedeAñadirFichaIzquierda(Ficha ficha)
