@@ -12,19 +12,8 @@ namespace Domino;
 // Si no puedes colocar ficha robas una del montón.
 // Si no hay fichas en el montón se pasa el turno.
 
-public class Tests
+public class TestsTablero
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
-    [Test]
-    public void Test1()
-    {
-        Assert.Pass();
-    }
-
     [Test]
     public void Conectables()
     {
