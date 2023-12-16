@@ -146,11 +146,10 @@ public class Tests
             tablero.AñadirInicial(new Ficha(1, 2));
             tablero.AñadirPorLaDerecha(new Ficha(3, 2));
             tablero.AñadirPorLaDerecha(new Ficha(3, 4));
-            Assert.Pass();
         }
         catch (Exception e)
         {
-            Assert.Fail();
+            Assert.Fail(e.ToString());
         }
     }
     
@@ -161,14 +160,13 @@ public class Tests
 
         try
         {
-            tablero.AñadirInicial(new Ficha(1, 2));
+            tablero.AñadirInicial(new Ficha(2, 1));
             tablero.AñadirPorLaIzquierda(new Ficha(3, 2));
             tablero.AñadirPorLaIzquierda(new Ficha(3, 4));
-            Assert.Pass();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Assert.Fail(e.ToString());
         }
     }
 
