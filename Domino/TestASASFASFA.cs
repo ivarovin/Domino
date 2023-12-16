@@ -31,6 +31,18 @@ public class TestASASFASFA
         Assert.AreEqual(tablero.Fichas.Count, 1);
     }
     
+    [Test]
+    public void JugadorAñadeFichaTableroConecta()
+    {
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero);
+        tablero.AñadirInicial(new Ficha(1, 2));
+
+        jugador.JugarFichaDerecha(0);
+        
+        Assert.AreEqual(tablero.Fichas.Count, 2);
+    }
+    
     // [Test]
     // public void GenerarFichas()
     // {

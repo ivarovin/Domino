@@ -18,4 +18,9 @@ public class Jugador
     {
         tablero.AñadirInicial(Mano[i]);
     }
+
+    public void JugarFichaDerecha(int i)
+    {
+        throw new NotImplementedException();
+    }
 }
