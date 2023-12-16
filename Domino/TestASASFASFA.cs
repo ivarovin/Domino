@@ -14,15 +14,33 @@ public class TestASASFASFA
     [Test]
     public void JugadorFichasIniciales()
     {
-        var jugador = new Jugador();
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero);
         
         Assert.AreEqual(jugador.Mano.Count, 7);
     }
 
-    public class Jugador
+    [Test]
+    public void JugadorAñadeFichaTablero()
     {
-        public List<Ficha> Mano = new();
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero);
+
+        jugador.JugarFicha(0);
+        
+        Assert.AreEqual(tablero.Fichas.Count, 1);
     }
     
-    
+    // [Test]
+    // public void GenerarFichas()
+    // {
+    //     var fichas = new List<Ficha>();
+    //     for (int i = 0; i < 7; i++)
+    //     {
+    //         for (int j = i; j < 7; j++)
+    //         {
+    //             fichas.Add(new Ficha(i, j));
+    //         }
+    //     }
+    // }
 }
