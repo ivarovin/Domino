@@ -23,10 +23,30 @@ public class Ficha
 
     public Ficha AlinearDerecha(Celda otra)
     {
-        if(n1.Equals())
+        if(n1.Equals(otra))
+        {
+            return Girada();
+        }
+        if(n2.Equals(otra))
+        {
+            return this;
+        }
+        throw new Exception("No se puede alinear derecha");
+    }
+    public Ficha AlinearIzquierda(Celda otra)
+    {
+        if(n2.Equals(otra))
+        {
+            return Girada();
+        }
+        if(n1.Equals(otra))
+        {
+            return this;
+        }
+        throw new Exception("No se puede alinear izquierda");
     }
     
-    public Ficha Girar()
+    public Ficha Girada()
     {
         return new Ficha(n2, n1);
     }

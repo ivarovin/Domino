@@ -9,26 +9,16 @@ public class Tablero
         Fichas.Add(ficha);
     }
 
-    // public ?? ComprobarYAñadirPorLaIzquierda(Ficha ficha)
-    // {
-    //     if (!PuedeAñadirFichaIzquierda(ficha)) {
-    //         return false
-    //     } else {
-    //         Fichas.Insert(0, ficha);
-    //         return true
-    //     }
-    // }
-
     public void AñadirPorLaIzquierda(Ficha ficha)
     {
         if(!PuedeAñadirFichaIzquierda(ficha)) throw new Exception("No se puede añadir la ficha por la izq");
-        Fichas.Insert(0, ficha.Girar());
+        Fichas.Insert(0, ficha.AlinearDerecha(CeldaIzquierda()));
     }
 
     public void AñadirPorLaDerecha(Ficha ficha)
     {
         if(!PuedeAñadirFichaDerecha(ficha)) throw new Exception("No se puede añadir la ficha por la derecha");
-        Fichas.Insert(Fichas.Count, ficha.Girar());
+        Fichas.Insert(Fichas.Count, ficha.AlinearIzquierda(CeldaDerecha()));
     }
 
     public bool PuedeAñadirFichaIzquierda(Ficha ficha)

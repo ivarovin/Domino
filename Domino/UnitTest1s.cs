@@ -137,13 +137,39 @@ public class Tests
     }
 
     [Test]
-    public void asdasda()
+    public void GirarAlAñadirDerecha()
     {
         var tablero = new Tablero();
 
-        tablero.AñadirInicial(new Ficha(1, 2));
-        tablero.AñadirPorLaDerecha(new Ficha(3, 2));
-        tablero.AñadirPorLaDerecha(new Ficha(3, 4));
+        try
+        {
+            tablero.AñadirInicial(new Ficha(1, 2));
+            tablero.AñadirPorLaDerecha(new Ficha(3, 2));
+            tablero.AñadirPorLaDerecha(new Ficha(3, 4));
+            Assert.Pass();
+        }
+        catch (Exception e)
+        {
+            Assert.Fail();
+        }
+    }
+    
+    [Test]
+    public void GirarAlAñadirIzquierda()
+    {
+        var tablero = new Tablero();
+
+        try
+        {
+            tablero.AñadirInicial(new Ficha(1, 2));
+            tablero.AñadirPorLaIzquierda(new Ficha(3, 2));
+            tablero.AñadirPorLaIzquierda(new Ficha(3, 4));
+            Assert.Pass();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
 
     [Test]
