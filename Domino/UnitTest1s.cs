@@ -55,7 +55,7 @@ public class Tests
     {
         var tablero = new Tablero();
 
-        tablero.Añadir(new Ficha(1, 2));
+        tablero.AñadirInicial(new Ficha(1, 2));
 
         Assert.AreEqual(tablero.Fichas.Count, 1);
     }
@@ -64,9 +64,20 @@ public class Tests
     public void AñadirFichaATableroIzquierda()
     {
         var tablero = new Tablero();
+        tablero.AñadirInicial(new Ficha(1, 2));
         tablero.AñadirPorLaIzquierda(new Ficha(1,2));
-        // tablero.AñadirPorLaIzquierda(new Ficha(1,2));
         
+        Assert.IsTrue(tablero.Fichas.Count == 2);
+    }
+    
+    [Test]
+    public void AñadirFichaATableroDerecha()
+    {
+        var tablero = new Tablero();
+        tablero.AñadirInicial(new Ficha(1, 2));
+        tablero.AñadirPorLaDerecha(new Ficha(1,2));
+        
+        Assert.IsTrue(tablero.Fichas.Count == 2);
     }
 
     [Test]
@@ -74,7 +85,7 @@ public class Tests
     {
         var tablero = new Tablero();
 
-        tablero.Añadir(new Ficha(2, 1));
+        tablero.AñadirInicial(new Ficha(2, 1));
 
         Assert.IsTrue(tablero.PuedeAñadirFichaIzquierda(new Ficha(2, 3)));
     }
@@ -84,7 +95,7 @@ public class Tests
     {
         var tablero = new Tablero();
 
-        tablero.Añadir(new Ficha(1, 2));
+        tablero.AñadirInicial(new Ficha(1, 2));
 
         Assert.IsFalse(tablero.PuedeAñadirFichaIzquierda(new Ficha(2, 3)));
     }
@@ -94,7 +105,7 @@ public class Tests
     {
         var tablero = new Tablero();
 
-        tablero.Añadir(new Ficha(1, 2));
+        tablero.AñadirInicial(new Ficha(1, 2));
 
         Assert.IsTrue(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
     }
@@ -105,16 +116,12 @@ public class Tests
     {
         var tablero = new Tablero();
 
-        tablero.Añadir(new Ficha(2, 1));
+        tablero.AñadirInicial(new Ficha(2, 1));
 
         Assert.IsFalse(tablero.PuedeAñadirFichaDerecha(new Ficha(2, 3)));
     }
 
-    [Test]
-    public void AñadirPorLaDerecha()
-    {
-        
-    }
+    
 
     [Test]
     public void ConectarFichaConCelda()

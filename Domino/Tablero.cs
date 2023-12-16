@@ -4,19 +4,21 @@ public class Tablero
 {
     public List<Ficha> Fichas { get; } = new List<Ficha>();
 
-    public void Añadir(Ficha ficha)
+    public void AñadirInicial(Ficha ficha)
     {
         Fichas.Add(ficha);
     }
 
     public void AñadirPorLaIzquierda(Ficha ficha)
     {
-        // Fichas.
+        if(!PuedeAñadirFichaIzquierda(ficha)) throw new Exception("No se puede añadir la ficha por la izq");
+        Fichas.Insert(0, ficha);
     }
 
     public void AñadirPorLaDerecha(Ficha ficha)
     {
-        // Fichas.
+        if(!PuedeAñadirFichaDerecha(ficha)) throw new Exception("No se puede añadir la ficha por la derecha");
+        Fichas.Insert(Fichas.Count, ficha);
     }
 
     public bool PuedeAñadirFichaIzquierda(Ficha ficha)
