@@ -1,12 +1,17 @@
 namespace Domino;
 
+public interface Mezclador
+{
+    List<Ficha> Mezclar(List<Ficha> fichas);
+}
+
 public class Pila
 {
     private List<Ficha> fichas;
 
     public int FichasRestantes => fichas.Count;
 
-    public Pila()
+    public Pila(Mezclador mezclador)
     {
         fichas = new List<Ficha>();
         for (int i = 0; i < 7; i++)
@@ -16,6 +21,8 @@ public class Pila
                 fichas.Add(new Ficha(i, j));
             }
         }
+
+        fichas = mezclador.Mezclar(fichas);
     }
 
     public Ficha Robar()
@@ -27,8 +34,8 @@ public class Pila
 
         var ficha = fichas[0];
         fichas.Remove(ficha);
-        
+
         return ficha;
     }
-    
+
 }

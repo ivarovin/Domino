@@ -80,12 +80,12 @@ public class TestJugador
         var pila = new Pila();
         var jugador = new Jugador(tablero, pila);
 
-        var numeroInicial = jugador.Mano.Count;
+        var numeroInicialJugador = jugador.Mano.Count;
         var numeroInicialPila = pila.FichasRestantes;
         
         jugador.Robar();
         
-        Assert.AreEqual(numeroInicial + 1,jugador.Mano.Count);
-        Assert.AreEqual(numeroInicialPila + 1, pila.FichasRestantes);
+        Assert.AreEqual(numeroInicialJugador + 1,jugador.Mano.Count);
+        Assert.AreEqual(numeroInicialPila - 1, pila.FichasRestantes);
     }
 }
