@@ -56,10 +56,20 @@ public class TestASASFASFA
     }
     
     [Test]
-    public void GenerarFichas()
+    public void GenerarPila()
     {
         var pila = new Pila();
         
-        Assert.AreEqual(pila.Fichas.Count, 28);
+        Assert.AreEqual(pila.FichasRestantes, 28);
+    }
+    
+    [Test]
+    public void RobarDeLaPila()
+    {
+        var pila = new Pila();
+
+        pila.Robar();
+        
+        Assert.AreEqual(pila.FichasRestantes, 27);
     }
 }

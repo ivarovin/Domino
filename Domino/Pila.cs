@@ -4,6 +4,8 @@ public class Pila
 {
     private List<Ficha> fichas;
 
+    public int FichasRestantes => fichas.Count;
+
     public Pila()
     {
         fichas = new List<Ficha>();
@@ -16,4 +18,17 @@ public class Pila
         }
     }
 
+    public Ficha Robar()
+    {
+        if (FichasRestantes == 0)
+        {
+            throw new Exception("No hay fichas para robar");
+        }
+
+        var ficha = fichas[0];
+        fichas.Remove(ficha);
+        
+        return ficha;
+    }
+    
 }
