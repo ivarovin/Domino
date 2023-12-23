@@ -31,4 +31,6 @@ public class Jugador
     {
         tablero.AñadirPorLaIzquierda(Mano[i]);
     }
+    
+    
 }

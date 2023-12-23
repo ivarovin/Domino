@@ -36,7 +36,7 @@ public class TestJugador
     {
         var tablero = new Tablero();
         var jugador = new Jugador(tablero, new Pila());
-        tablero.AñadirInicial(new Ficha(1, 2));
+        tablero.AñadirInicial(new Ficha(0,0));
 
         jugador.JugarFichaDerecha(0);
         
@@ -48,7 +48,7 @@ public class TestJugador
     {
         var tablero = new Tablero();
         var jugador = new Jugador(tablero, new Pila());
-        tablero.AñadirInicial(new Ficha(2, 1));
+        tablero.AñadirInicial(new Ficha(0,0));
 
         jugador.JugarFichaIzquierda(0);
         
@@ -79,8 +79,9 @@ public class TestJugador
         var tablero = new Tablero();
         var jugador = new Jugador(tablero, new Pila());
 
-        // jugador.Robar();
-        // Assert.AreEqual(jugador.Mano.Count, 6);
-        // Assert.AreEqual(pila.FichasRestantes, 27);
+        jugador.Robar();
+        
+        Assert.AreEqual(jugador.Mano.Count, 8);
+        Assert.AreEqual(pila.FichasRestantes, 27);
     }
 }
