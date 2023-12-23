@@ -77,11 +77,15 @@ public class TestJugador
     public void JugadorPuedeRobar()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero, new Pila());
+        var pila = new Pila();
+        var jugador = new Jugador(tablero, pila);
 
+        var numeroInicial = jugador.Mano.Count;
+        var numeroInicialPila = pila.FichasRestantes;
+        
         jugador.Robar();
         
-        Assert.AreEqual(jugador.Mano.Count, 8);
-        Assert.AreEqual(pila.FichasRestantes, 27);
+        Assert.AreEqual(numeroInicial + 1,jugador.Mano.Count);
+        Assert.AreEqual(numeroInicialPila + 1, pila.FichasRestantes);
     }
 }

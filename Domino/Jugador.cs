@@ -31,6 +31,9 @@ public class Jugador
     {
         tablero.AñadirPorLaIzquierda(Mano[i]);
     }
-    
-    
+
+    public void Robar()
+    {
+        Mano.Add(pila.Robar());
+    }
 }
