@@ -88,4 +88,19 @@ public class TestJugador
         Assert.AreEqual(numeroInicialJugador + 1,jugador.Mano.Count);
         Assert.AreEqual(numeroInicialPila - 1, pila.FichasRestantes);
     }
+
+    [Test]
+    public void JugadorIntentaRobarDePilaVacia()
+    {
+        var tablero = new Tablero();
+        var pila = new Pila(new MezcladorTest());
+        var jugador = new Jugador(tablero, pila);
+
+        for (int i = 0; i < 300; i++)
+        {
+            jugador.Robar();
+        }
+        
+        Assert.AreEqual(28, jugador.Mano.Count);
+    }
 }
