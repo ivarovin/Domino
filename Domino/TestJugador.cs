@@ -15,7 +15,7 @@ public class TestJugador
     public void JugadorFichasIniciales()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero, new Pila());
+        var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
         
         Assert.AreEqual(jugador.Mano.Count, 7);
     }
@@ -24,7 +24,7 @@ public class TestJugador
     public void JugadorAñadeFichaTablero()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero, new Pila());
+        var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
 
         jugador.JugarFicha(0);
         
@@ -35,7 +35,7 @@ public class TestJugador
     public void JugadorAñadeFichaTableroConectaDerecha()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero, new Pila());
+        var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
         tablero.AñadirInicial(new Ficha(0,0));
 
         jugador.JugarFichaDerecha(0);
@@ -47,7 +47,7 @@ public class TestJugador
     public void JugadorAñadeFichaTableroConectaIzquierda()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero, new Pila());
+        var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
         tablero.AñadirInicial(new Ficha(0,0));
 
         jugador.JugarFichaIzquierda(0);
@@ -58,7 +58,7 @@ public class TestJugador
     [Test]
     public void GenerarPila()
     {
-        var pila = new Pila();
+        var pila = new Pila(new MezcladorTest());
         
         Assert.AreEqual(pila.FichasRestantes, 28);
     }
@@ -66,7 +66,7 @@ public class TestJugador
     [Test]
     public void RobarDeLaPila()
     {
-        var pila = new Pila();
+        var pila = new Pila(new MezcladorTest());
 
         pila.Robar();
         
@@ -77,7 +77,7 @@ public class TestJugador
     public void JugadorPuedeRobar()
     {
         var tablero = new Tablero();
-        var pila = new Pila();
+        var pila = new Pila(new MezcladorTest());
         var jugador = new Jugador(tablero, pila);
 
         var numeroInicialJugador = jugador.Mano.Count;

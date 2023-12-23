@@ -5,6 +5,14 @@ public interface Mezclador
     List<Ficha> Mezclar(List<Ficha> fichas);
 }
 
+public class MezcladorTest : Mezclador
+{
+    public List<Ficha> Mezclar(List<Ficha> fichas)
+    {
+        return fichas;
+    }
+}
+
 public class Pila
 {
     private List<Ficha> fichas;
