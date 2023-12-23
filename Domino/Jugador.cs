@@ -21,6 +21,11 @@ public class Jugador
 
     public void JugarFichaDerecha(int i)
     {
-        throw new NotImplementedException();
+        tablero.AñadirPorLaDerecha(Mano[i]);
+    }
+
+    public void JugarFichaIzquierda(int i)
+    {
+        tablero.AñadirPorLaIzquierda(Mano[i]);
     }
 }

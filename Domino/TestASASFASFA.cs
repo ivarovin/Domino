@@ -32,7 +32,7 @@ public class TestASASFASFA
     }
     
     [Test]
-    public void JugadorAñadeFichaTableroConecta()
+    public void JugadorAñadeFichaTableroConectaDerecha()
     {
         var tablero = new Tablero();
         var jugador = new Jugador(tablero);
@@ -43,16 +43,23 @@ public class TestASASFASFA
         Assert.AreEqual(tablero.Fichas.Count, 2);
     }
     
-    // [Test]
-    // public void GenerarFichas()
-    // {
-    //     var fichas = new List<Ficha>();
-    //     for (int i = 0; i < 7; i++)
-    //     {
-    //         for (int j = i; j < 7; j++)
-    //         {
-    //             fichas.Add(new Ficha(i, j));
-    //         }
-    //     }
-    // }
+    [Test]
+    public void JugadorAñadeFichaTableroConectaIzquierda()
+    {
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero);
+        tablero.AñadirInicial(new Ficha(2, 1));
+
+        jugador.JugarFichaIzquierda(0);
+        
+        Assert.AreEqual(tablero.Fichas.Count, 2);
+    }
+    
+    [Test]
+    public void GenerarFichas()
+    {
+        var pila = new Pila();
+        
+        Assert.AreEqual(pila.Fichas.Count, 28);
+    }
 }
