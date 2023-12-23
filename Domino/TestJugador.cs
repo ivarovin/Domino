@@ -9,13 +9,13 @@ namespace Domino;
 // Si no puedes colocar ficha robas una del montón.
 // Si no hay fichas en el montón se pasa el turno.
 
-public class TestASASFASFA
+public class TestJugador
 {
     [Test]
     public void JugadorFichasIniciales()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero);
+        var jugador = new Jugador(tablero, new Pila());
         
         Assert.AreEqual(jugador.Mano.Count, 7);
     }
@@ -24,7 +24,7 @@ public class TestASASFASFA
     public void JugadorAñadeFichaTablero()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero);
+        var jugador = new Jugador(tablero, new Pila());
 
         jugador.JugarFicha(0);
         
@@ -35,7 +35,7 @@ public class TestASASFASFA
     public void JugadorAñadeFichaTableroConectaDerecha()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero);
+        var jugador = new Jugador(tablero, new Pila());
         tablero.AñadirInicial(new Ficha(1, 2));
 
         jugador.JugarFichaDerecha(0);
@@ -47,7 +47,7 @@ public class TestASASFASFA
     public void JugadorAñadeFichaTableroConectaIzquierda()
     {
         var tablero = new Tablero();
-        var jugador = new Jugador(tablero);
+        var jugador = new Jugador(tablero, new Pila());
         tablero.AñadirInicial(new Ficha(2, 1));
 
         jugador.JugarFichaIzquierda(0);
@@ -71,5 +71,16 @@ public class TestASASFASFA
         pila.Robar();
         
         Assert.AreEqual(pila.FichasRestantes, 27);
+    }
+
+    [Test]
+    public void JugadorPuedeRobar()
+    {
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero, new Pila());
+
+        // jugador.Robar();
+        // Assert.AreEqual(jugador.Mano.Count, 6);
+        // Assert.AreEqual(pila.FichasRestantes, 27);
     }
 }

@@ -4,13 +4,16 @@ public class Jugador
 {
     public List<Ficha> Mano = new();
     private readonly Tablero tablero;
+    private readonly Pila pila;
         
-    public Jugador(Tablero tablero)
+    public Jugador(Tablero tablero, Pila pila)
     {
+        this.pila = pila;
         this.tablero = tablero;
         for (int i = 0; i < 7; i++)
         {
-            Mano.Add(new Ficha(1, 2));
+            Mano.Add(pila.Robar());
+            // Mano.Add(new Ficha(1, 2));
         }
     }
 
