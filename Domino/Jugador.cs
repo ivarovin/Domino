@@ -34,6 +34,9 @@ public class Jugador
 
     public void Robar()
     {
-        Mano.Add(pila.Robar());
+        if (pila.FichasRestantes > 0)
+        {
+            Mano.Add(pila.Robar());
+        }
     }
 }
