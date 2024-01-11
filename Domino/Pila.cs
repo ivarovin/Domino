@@ -35,7 +35,7 @@ public class Pila
 
     public Ficha Robar()
     {
-        if (FichasRestantes == 0)
+        if (!PuedeRobar())
         {
             throw new Exception("No hay fichas para robar");
         }
@@ -44,6 +44,11 @@ public class Pila
         fichas.Remove(ficha);
 
         return ficha;
+    }
+
+    public bool PuedeRobar()
+    {
+        return FichasRestantes > 0;
     }
 
 }
