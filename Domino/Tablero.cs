@@ -6,6 +6,7 @@ public class Tablero
 
     public void AñadirInicial(Ficha ficha)
     {
+        if (Fichas.Any()) throw new Exception("No se puede añadir la ficha inicial");
         Fichas.Add(ficha);
     }
 

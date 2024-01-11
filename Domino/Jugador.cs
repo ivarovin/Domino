@@ -22,6 +22,14 @@ public class Jugador
         tablero.AñadirInicial(Mano[i]);
     }
 
+    // public void IntentarJugarFichaDerecha(int i)
+    // {
+    //     if (tablero.PuedeAñadirFichaDerecha(Mano[i]))
+    //     {
+    //         JugarFichaDerecha(Mano[i]);
+    //     }
+    // }
+
     public void JugarFichaDerecha(int i)
     {
         tablero.AñadirPorLaDerecha(Mano[i]);
