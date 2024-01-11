@@ -17,7 +17,7 @@ public class Jugador
         }
     }
 
-    public void JugarFicha(int i)
+    public void IntentarJugarFicha(int i)
     {
         tablero.AñadirInicial(Mano[i]);
     }

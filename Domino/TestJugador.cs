@@ -26,7 +26,7 @@ public class TestJugador
         var tablero = new Tablero();
         var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
 
-        jugador.JugarFicha(0);
+        jugador.IntentarJugarFicha(0);
         
         Assert.AreEqual(tablero.Fichas.Count, 1);
     }
@@ -103,4 +103,17 @@ public class TestJugador
         
         Assert.AreEqual(28, jugador.Mano.Count);
     }
+    
+    [Test]
+    public void JugadorIntentaJugarFichaIncorrecta()
+    {
+        var tablero = new Tablero();
+        var jugador = new Jugador(tablero, new Pila(new MezcladorTest()));
+
+        tablero.AñadirInicial(new Ficha(6,6));
+        jugador.IntentarJugarFicha(0);
+
+        Assert.AreEqual(tablero.Fichas.Count, 1);
+    }
+    
 }
