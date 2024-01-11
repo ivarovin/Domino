@@ -83,7 +83,7 @@ public class TestJugador
         var numeroInicialJugador = jugador.Mano.Count;
         var numeroInicialPila = pila.FichasRestantes;
         
-        jugador.Robar();
+        jugador.IntentarRobar();
         
         Assert.AreEqual(numeroInicialJugador + 1,jugador.Mano.Count);
         Assert.AreEqual(numeroInicialPila - 1, pila.FichasRestantes);
@@ -98,7 +98,7 @@ public class TestJugador
 
         for (int i = 0; i < 300; i++)
         {
-            jugador.Robar();
+            jugador.IntentarRobar();
         }
         
         Assert.AreEqual(28, jugador.Mano.Count);
